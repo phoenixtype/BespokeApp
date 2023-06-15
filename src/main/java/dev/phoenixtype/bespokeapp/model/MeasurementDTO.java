@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,5 +16,5 @@ import java.util.List;
 public class MeasurementDTO {
     private Long userId;
     private String apparelType;
-    private List<MeasurementDetailDTO> measurementDetails;
+    private List<MeasurementDetailDTO> measurementDetails = new ArrayList<>();
 }
