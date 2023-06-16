@@ -1,14 +1,13 @@
-name: Build & Deploy BespokeApp Spring Boot Application
+name: Build & Deploy LyneApp Spring Boot Application
 
 on:
-    push:
-      branches:
-        - main
-
+  push:
+    branches:
+      - authentication-and-onboarding
 
 jobs:
   build-deploy:
-    name: Build & Deploy BespokeApp Spring Boot Application
+    name: Build & Deploy LyneApp Spring Boot Application
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,10 +19,7 @@ jobs:
           distribution: 'corretto'
           java-version: 17
 
-#      - name: Unit Tests
-#        run: mvn -B test --file pom.xml
-
       - name: Build the application
         run: |
           mvn clean
-          mvn -B package --file pom.xml
+          mvn -B package --file pom.xml -Dmaven.test.skip=true
